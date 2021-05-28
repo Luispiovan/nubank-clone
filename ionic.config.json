@@ -1,7 +1,5 @@
 {
-  "name": "nubank-clone",
-  "integrations": {
-    "capacitor": {}
-  },
+  "name": "nubank",
+  "integrations": {},
   "type": "angular"
 }

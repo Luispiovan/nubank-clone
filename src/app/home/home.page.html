@@ -1,20 +1,83 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <span class="ion-text-center">
+      Olá, Luís Piovan
+    </span>
+    <ion-button slot="end" size="" fill="clear" color="light">
+      <ion-icon name="eye-off-outline"></ion-icon>
+    </ion-button>
+    <ion-button slot="end" size="" fill="clear" color="light" (click)="OpenModal()">
+      <ion-icon name="settings-outline"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
+<ion-content class="ion-padding ion-no-border" color="primary">
+  <div class="blocks">
+  <ion-card>
+      <ion-item class="ion-margin-vertical" lines="none">
+        <ion-icon slot="start" name="card-outline"></ion-icon>
+        <ion-label>Cartão de crédito</ion-label>
+      </ion-item>
+      <ion-card-content  class="ion-no-padding ion-margin-vertical">
+        <div class="cash ion-padding">
+          <span class="blue">Fatura atual</span>
+          <span class="blue value">R$ 57,55</span>
+          <span>Limite disponivel <span class="green">R$ 2.942,45</span></span>
+        </div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-item  class="ion-margin-vertical" lines="none">
+        <ion-icon slot="start" name="wallet-outline"></ion-icon>
+        <ion-label><span>Conta</span></ion-label>
+      </ion-item>
+        <ion-card-content class="ion-no-padding ion-margin-vertical">
+        <div class="valor acount ion-padding">
+          <span>Saldo disponivel</span>
+          <ion-text color="dark">
+            <span>R$ 15.289,51</span>
+          </ion-text>
+        </div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content class="ion-no-border" (click)="OpenCartao()">
+        <span class="cartao">Meus cartões</span>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content class="ion-text-center">
+          <ion-icon class="icon" name="gift-outline"></ion-icon>
+        <div class="ion-margin-vertical">
+          <ion-text color="dark">
+            <p class="title">
+              <strong>Nubank Rewards</strong>
+            </p>
+            <p>
+              Acumule pontos que nunca expiram e troque por passagens aérias ou serviços que você realmente usa.
+            </p>
+          </ion-text>
+        </div>
+        <ion-button  slot="start" expand="block" fill="outline">
+          <strong>ATIVE O SEU REWARDS</strong>
+        </ion-button>
+
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar color="primary" class="ion-no-sargin ion-padding-vertical">
+    <ion-slides [options]="slideOptions">
+      <ion-slide *ngFor="let options of options">
+        <div class="container ion-text-left" (click)="navigateTo(options.rota)">
+            <ion-icon [name]="options.icon"></ion-icon>
+          <span>{{options.text}}</span>
+        </div>
+
+      </ion-slide>
+    </ion-slides>
+  </ion-toolbar>
+</ion-footer>
